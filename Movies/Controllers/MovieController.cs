@@ -18,15 +18,22 @@ namespace Movies.Controllers
             Models.MongoHelper.MoviesCollection =
                 Models.MongoHelper.database.GetCollection<Models.Movie>("movies");
             var filter = Builders<Models.Movie>.Filter.Ne("","");
+            //var filter = Builders<Models.Movie>.Filter.Ne("Id", "");
             var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList();
 
             return View(result);
         }
 
         // GET: MovieController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            Models.MongoHelper.ConnectToMongoService();
+            Models.MongoHelper.MoviesCollection =
+                Models.MongoHelper.database.GetCollection<Models.Movie>("movies");
+            var filter = Builders<Models.Movie>.Filter.Eq("_id", id);
+            //FirstOrDefault to get only one result 
+            var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList().FirstOrDefault();
+            return View(result);
         }
 
         // GET: MovieController/Create
@@ -81,19 +88,39 @@ namespace Movies.Controllers
 
 
         // GET: MovieController/Edit/5
-        public ActionResult Edit(int id)
+        //public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            Models.MongoHelper.ConnectToMongoService();
+            Models.MongoHelper.MoviesCollection =
+                Models.MongoHelper.database.GetCollection<Models.Movie>("movies");
+            var filter = Builders<Models.Movie>.Filter.Eq("_id", id);
+            //FirstOrDefault to get only one result 
+            var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList().FirstOrDefault();
+            return View(result);
         }
 
         // POST: MovieController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string id, IFormCollection collection)
         {
             try
             {
-               //return RedirectToAction(nameof(Index));
+                Models.MongoHelper.ConnectToMongoService();
+                Models.MongoHelper.MoviesCollection =
+                    Models.MongoHelper.database.GetCollection<Models.Movie>("movies");
+                var filter = Builders<Models.Movie>.Filter.Eq("_id", id);
+                var update = Builders<Models.Movie>.Update
+                    .Set("movieTitle", collection["movieTitle"])
+                    .Set("releaseYear", collection["releaseYear"])
+                    .Set("director", collection["director"])
+                    .Set("writers", collection["writers"])
+                    .Set("stars", collection["stars"])
+                    .Set("story", collection["story"]);
+                var result = Models.MongoHelper.MoviesCollection.UpdateOneAsync(filter, update);
+
+                //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Index");
             }
             catch
@@ -103,18 +130,29 @@ namespace Movies.Controllers
         }
 
         // GET: MovieController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            Models.MongoHelper.ConnectToMongoService();
+            Models.MongoHelper.MoviesCollection =
+                Models.MongoHelper.database.GetCollection<Models.Movie>("movies");
+            var filter = Builders<Models.Movie>.Filter.Eq("_id", id);
+            //FirstOrDefault to get only one result 
+            var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList().FirstOrDefault();
+            return View(result);
         }
 
         // POST: MovieController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(string id, IFormCollection collection)
         {
             try
             {
+                Models.MongoHelper.ConnectToMongoService();
+                Models.MongoHelper.MoviesCollection =
+                    Models.MongoHelper.database.GetCollection<Models.Movie>("movies");
+                var filter = Builders<Models.Movie>.Filter.Eq("_id", id);
+                var result = Models.MongoHelper.MoviesCollection.DeleteOneAsync(filter);
                 //return RedirectToAction(nameof(Index));
                 return RedirectToAction("Index");
              }
