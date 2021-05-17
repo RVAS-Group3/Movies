@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System;
@@ -24,6 +25,7 @@ namespace Movies.Controllers
             return View(result);
         }
 
+        [Authorize]
         // GET: MovieController/Details/5
         public ActionResult Details(string id)
         {
@@ -35,13 +37,13 @@ namespace Movies.Controllers
             var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList().FirstOrDefault();
             return View(result);
         }
-
+        [Authorize]
         // GET: MovieController/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: MovieController/Create
         [HttpPost]
          
@@ -86,7 +88,7 @@ namespace Movies.Controllers
             return new string(Enumerable.Repeat(strarray, v).Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-
+        [Authorize]
         // GET: MovieController/Edit/5
         //public ActionResult Edit(int id)
         public ActionResult Edit(string id)
@@ -99,7 +101,7 @@ namespace Movies.Controllers
             var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList().FirstOrDefault();
             return View(result);
         }
-
+        [Authorize]
         // POST: MovieController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -128,7 +130,7 @@ namespace Movies.Controllers
                 return View();  
             }
         }
-
+        [Authorize]
         // GET: MovieController/Delete/5
         public ActionResult Delete(string id)
         {
@@ -140,7 +142,7 @@ namespace Movies.Controllers
             var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList().FirstOrDefault();
             return View(result);
         }
-
+        [Authorize]
         // POST: MovieController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

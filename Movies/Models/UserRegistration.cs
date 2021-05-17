@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Movies.Models
     public class UserRegistration
     {
     
+        [BsonId]
         public Object _id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "First Name is requierd")]
