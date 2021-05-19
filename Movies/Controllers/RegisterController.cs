@@ -63,7 +63,7 @@ namespace Movies.Controllers
                 if (IsExists)
                 {
                     ModelState.AddModelError("EmailExists", "Email already exists");
-                    return View("Create");
+                   return View("Create");
                 }
 
                 //insert new user in database
