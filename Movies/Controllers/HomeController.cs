@@ -35,7 +35,7 @@ namespace Movies.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize]
+
         public ActionResult LogOut()
         {
             return RedirectToAction("Login", "Register");
