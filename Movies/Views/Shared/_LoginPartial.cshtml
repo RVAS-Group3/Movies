@@ -11,13 +11,17 @@
             <a asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
         </li>
         <li>
-            <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
+            <button type="submit" class="btn btn-link navbar-btn navbar-link"><ion-icon name="close-circle-outline"></ion-icon>Log off</button>
         </li>
     </ul>
 </form> }
 else
 {
-<ul class="nav navbar-nav navbar-right">
-    <li style="padding-right: 10px"><a asp-controller="Account" asp-action="Register">Register</a></li>
-    <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
+<ul class="navbar-nav">
+    <li style="padding-right:10px">
+        <a asp-controller="Account" asp-action="Register"><ion-icon name="person-add-outline"></ion-icon>Register</a>
+    </li>
+    <li>
+        <a asp-controller="Account" asp-action="Login"><ion-icon name="enter-outline"></ion-icon>Log in</a>
+    </li>
 </ul>}

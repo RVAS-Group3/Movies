@@ -86,3 +86,12 @@ td {
 dd {
     border-bottom:1px solid grey;
 }
+
+td ion-icon{
+    font-size:12px;
+}
+
+ion-icon {
+    position: relative;
+    top: 2px;
+}
