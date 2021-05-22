@@ -16,7 +16,8 @@ namespace Movies.Models
 
         public static IMongoCollection<Models.Movie> MoviesCollection { get; set; }
 
-               internal static void ConnectToMongoService()
+
+        internal static void ConnectToMongoService()
         {
             try
             {
