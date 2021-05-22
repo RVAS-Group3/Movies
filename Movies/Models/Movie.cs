@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Movies.Models
@@ -14,7 +16,5 @@ namespace Movies.Models
         public string writers { get; set; }
         public string stars { get; set; }
         public string story { get; set; }
-
-
     }
 }

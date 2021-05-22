@@ -5,16 +5,18 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Movies.Controllers
 {
+    
     public class MovieController : Controller
     {
         // GET: MovieController
         [Authorize]
         public ActionResult Index()
-            
         {
             Models.MongoHelper.ConnectToMongoService();
             Models.MongoHelper.MoviesCollection =
@@ -22,7 +24,6 @@ namespace Movies.Controllers
             var filter = Builders<Models.Movie>.Filter.Ne("","");
             //var filter = Builders<Models.Movie>.Filter.Ne("Id", "");
             var result = Models.MongoHelper.MoviesCollection.Find(filter).ToList();
-
             return View(result);
         }
 
