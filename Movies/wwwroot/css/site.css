@@ -75,3 +75,14 @@ body {
     color: red;
 }
 
+tr:nth-child(even){
+    background-color: blanchedalmond;
+}
+
+td {
+    border: 1px solid grey;
+}
+
+dd {
+    border-bottom:1px solid grey;
+}

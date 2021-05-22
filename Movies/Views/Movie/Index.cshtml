@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Movies.Models.Movie>
 
 @{
-    ViewData["Title"] = "Enjoy Movies";
+    ViewData["Title"] = "Movie List";
 }
 
 <h1>Movies</h1>
@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.movieTitle)
+                Title
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.releaseYear)
+                Year
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.director)
+                Director
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.writers)
+                Writers
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.stars)
+                Stars
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.story)
+                Story
             </th>
             <th></th>
         </tr>
@@ -55,8 +55,10 @@
                 @Html.DisplayFor(modelItem => item.story)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item._id }) |
-                @Html.ActionLink("Details", "Details", new { id=item._id }) |
+                @Html.ActionLink("Edit", "Edit", new { id=item._id })
+                <br />
+                @Html.ActionLink("Details", "Details", new { id=item._id })
+                <br />
                 @Html.ActionLink("Delete", "Delete", new { id=item._id })
             </td>
         </tr>

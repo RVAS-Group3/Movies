@@ -4,49 +4,21 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Movie</h4>
+    <h4>Movie details</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.movieTitle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.movieTitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.releaseYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.releaseYear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.director)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.director)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.writers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.writers)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.stars)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.stars)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.story)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.story)
-        </dd>
-    </dl>
+    <p><strong>Title</strong></p>
+    <p>@Html.DisplayFor(model => model.movieTitle)</p>
+    <p><strong>Year</strong></p>
+    <p>@Html.DisplayFor(model => model.releaseYear)</p>
+    <p><strong>Director</strong></p>
+    <p>@Html.DisplayFor(model => model.director)</p>
+    <p><strong>Writers</strong></p>
+    <p>@Html.DisplayFor(model => model.writers)</p>
+    <p><strong>Stars</strong></p>
+    <p>@Html.DisplayFor(model => model.stars)</p>
+    <p><strong>Story</strong></p>
+    <p>@Html.DisplayFor(model => model.story)</p>
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model._id }) |
