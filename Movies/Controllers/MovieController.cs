@@ -12,6 +12,7 @@ namespace Movies.Controllers
     public class MovieController : Controller
     {
         // GET: MovieController
+        [Authorize]
         public ActionResult Index()
             
         {

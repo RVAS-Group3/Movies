@@ -3,52 +3,22 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this movie?</h3>
 <div>
-    <h4>Movie</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.movieTitle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.movieTitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.releaseYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.releaseYear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.director)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.director)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.writers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.writers)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.stars)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.stars)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.story)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.story)
-        </dd>
-    </dl>
-    
+    <p><strong>Title</strong></p>
+    <p>@Html.DisplayFor(model => model.movieTitle)</p>
+    <p><strong>Year</strong></p>
+    <p>@Html.DisplayFor(model => model.releaseYear)</p>
+    <p><strong>Director</strong></p>
+    <p>@Html.DisplayFor(model => model.director)</p>
+    <p><strong>Writers</strong></p>
+    <p>@Html.DisplayFor(model => model.writers)</p>
+    <p><strong>Stars</strong></p>
+    <p>@Html.DisplayFor(model => model.stars)</p>
+    <p><strong>Story</strong></p>
+    <p>@Html.DisplayFor(model => model.story)</p>
+
     <form asp-action="Delete">
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
